@@ -1,2 +1,2 @@
 # Code-Quiz
-Tcomplete a coding assessment
+To complete a coding assessment
