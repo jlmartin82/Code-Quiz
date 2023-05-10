@@ -1,10 +1,10 @@
 
-
-{
+/*global declarations*/
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    
     border: 1px, solid red;
    
     /*global default font*/
@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: #dab4b4;
+    background-color: #222222;
     
     
 }
@@ -71,8 +71,11 @@ h1,h2{
 
 /*Header/Quiz Container Section*/
 
-.quiz-intro{
+.quiz-intro, main {
     margin-top:  30vh;
+    margin-left:10%;
+    margin-right: 10%;
+    background-color: ;
 }
 
 .quiz-intro p {
@@ -86,6 +89,9 @@ h1,h2{
 }
 
 /*Main Quiz Content*/
+main {
+    display: none; 
+}
 
 
 
