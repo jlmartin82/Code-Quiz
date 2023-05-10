@@ -1,0 +1,74 @@
+
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    border: 1px, solid red;
+   
+    /*global default font*/
+    font-family: monospace;
+    color:white;
+
+}
+
+body {
+    background-color: #dab4b4;
+    
+    
+}
+
+p {
+    color:white;
+    font-size: 1.3em;
+}
+
+Button{
+    outline: none; 
+    background-color:black;   
+    color:white;
+    font-size: 1.3em;
+}
+
+h1,h2{
+    
+}
+
+
+.outer-container {
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    
+}
+/*top-bar container*/
+
+.top-bar p {
+    float: right;
+
+}
+
+/*Inner-Container Section*/
+.inner-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 50%; 
+    margin: 0 auto;
+
+}
+
+
+
+/*Header/Quiz Container Section*/
+
+
+/*Main Quiz Content*/
+
+
+
+
+
+
