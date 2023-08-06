@@ -104,5 +104,5 @@ function startTimer() {
 }
 
 // Attach event listeners to buttons
-startButton.addEventListener('click' startQuiz() {
-}
+startButton.addEventListener('click', startQuiz);
+submitButton.addEventListener('click', submitScore);

@@ -1,85 +1,58 @@
-
-
 <!DOCTYPE html>
-
-<html>
-  <head>
-    <title>Codeing Quiz</title>
-    <meta charset="utf-8" name="viewport" content ="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./style.css">
-    <script src="script.js"></script>
-    
-  </head>
-  <body>
-       <!--main-->  
-    <div class="outer-container">
-
-    <!--top-bar section-->
-      <div class="top-bar">
-        <button>View Highscores</button>
-        <p>Timer: 00:00</p>
-      </div>
-        
-      <!--inner div-->
-      <div class="inner-container">
-         
-        <!---main header/quiz-->   
-        <header class="quiz-intro">
-          <h1>Welcome to the quiz</h1>
-          <p>To get started with the quiz start the quiz!</p>
-          <button>Start Quiz</button>
-        </header>
-
-        <!--main quiz-->
-        <main>
-
-          <section class= "questions-screen">
-            <h2>Question Here</h2>
-              <ul>
-                <li><button>Answer 1</button></li>
-                <li><button>Answer 2</button></li>
-                <li><button>Answer 3</button></li>
-                <li><button>Answer 4</button></li>
-              </ul>
-            </section>
-
-            <section class="quiz=finish-screen">
-              <h2>Quiz Finished</h2>
-              <p>Your Score: 00</p>
-              <div>
-                <label for=" ">Enter Initials:</label>
-                <input type="text">
-                <button>Submit</button>
-              </div>
-
-            </section>
-
-            <section class="highscores-screen">
-              <h2>Highscores:</h2>
-              <ol>
-                <li>JL - 20</li>
-              </ol>
-
-            </section>
-
-
-            
-          
-        </main>
-  
-           
-
-
-
-
-      </div>    
-        
-
-
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Coding Quiz</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <div class="outer-container">
+    <div class="top-bar">
+      <button>View Highscores</button>
+      <p id="timer">Time: 60</p>
     </div>
-  </body>
-   
-  </head>
+
+    <div class="inner-container">
+      <header class="quiz-intro">
+        <h1>Welcome to the quiz</h1>
+        <p>To get started with the quiz, click the button below!</p>
+        <button>Start Quiz</button>
+      </header>
+
+      <main>
+        <section class="questions-screen">
+          <h2>Question Here</h2>
+          <ul>
+            <li><button class="answer-btn">Choice 1</button></li>
+            <li><button class="answer-btn">Choice 2</button></li>
+            <li><button class="answer-btn">Choice 3</button></li>
+          </ul>
+        </section>
+        <div class="result-container">
+          <p id="result-text"></p>
+          <button id="next-btn">Next Question</button>
+        </div>
+
+        <div class="finish-container">
+          <h2>Quiz Finished</h2>
+          <p>Your Score: <span id="final-score"></span></p>
+          <label for="initials">Enter Initials:</label>
+          <input type="text" id="initials" />
+          <button id="submit-btn">Submit</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="highscores-container">
+    <h2>Highscores:</h2>
+    <ol id="highscores-list"></ol>
+    <button id="clear-btn">Clear Highscores</button>
+    <button id="go-back-btn">Go Back</button>
+  </div>
+
+  <script src="./assets/script.js"></script>
+</body>
 </html>
-
-

@@ -6,10 +6,10 @@
     box-sizing: border-box;
     /*border: 1px solid red;*/
     font-family: monospace;
-    color: white;
+    color: rgb(6, 6, 6);
     }
     body {
-        background-color: #222222;
+        background-color: #f7f7f7;
     }
     
     p {
@@ -19,7 +19,7 @@
     
     button {
         outline: none;
-        background-color: black;
+        background-color: rgb(137, 1, 1);
         color: white;
         font-size: 1.3em;
     }
@@ -49,7 +49,7 @@
     
     /* Inner-Container Section */
     .inner-container {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgb(255, 255, 255);
         height: 100%;
         width: 50%;
         margin: 0 auto;
@@ -65,7 +65,7 @@
         margin-top: 30vh;
         margin-left: 10%;
         margin-right: 10%;
-        background-color: pink;
+        background-color: rgb(138, 103, 109);
     }
     
     .quiz-intro p {
