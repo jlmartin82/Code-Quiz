@@ -13,23 +13,29 @@ const quizQuestions = [
   {
     question: 'Commonly Used data types DO NOT include',
     answers: ["stings", "alerts", "booleans", "numbers"],
-    correctAnswer:"alerts"
+    correctAnswer: "alerts"
   },
   {
-    question: "The condition in an if / else statment is enclosed within _____.",
+    question: "The condition in an if / else statement is enclosed within _____.",
     answers: ["parentheses", "quotes", "curly brackets", "square brackets"],
     correctAnswer: "parentheses"
   },
   {
-    question:"What javascipt method can we use to select an html element?",
-    answers:["document.queryselector()", "document.getElementChild", "document.getElementById", "Both 1 and 3"],    
-	correctAnswer: "Both 1 and 3"
+    question: "What JavaScript method can we use to select an HTML element?",
+    answers: ["document.querySelector()", "document.getElementChild", "document.getElementById", "Both 1 and 3"],
+    correctAnswer: "Both 1 and 3"
   }
 ];
 
 // Global variables
 let currentQuestionIndex = 0;
 let timeLeft = 60;
+let timerInterval;
+
+// Function to handle the click event for the Start button
+function StartButtonClick() {
+  startQuiz();
+}
 
 // Functions for handling the quiz
 function startQuiz() {
@@ -51,7 +57,7 @@ function showQuestion(index) {
   // Attach click event listeners to answer buttons
   answerButtons.forEach((button, i) => {
     button.addEventListener('click', () => {
-      if (i === currentQuestion.correctAnswer) {
+      if (currentQuestion.answers[i] === currentQuestion.correctAnswer) {
         scoreDisplay.textContent = `Your Score: ${timeLeft}`;
         showQuizFinishScreen();
       } else {
@@ -103,6 +109,8 @@ function startTimer() {
   }, 1000);
 }
 
-// Attach event listeners to buttons
-startButton.addEventListener('click', startQuiz);
+// Attach event listener to the Start button
+startButton.addEventListener('click', StartButtonClick);
+
+// Attach event listener to the Submit button
 submitButton.addEventListener('click', submitScore);
