@@ -1,100 +1,142 @@
-/* Global declarations */
-
-*{
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*border: 1px solid red;*/
-    font-family: monospace;
-    color: rgb(6, 6, 6);
-    }
-    body {
-        background-color: #f7f7f7;
-    }
-    
-    p {
-        color: white;
-        font-size: 1.3em;
-    }
-    
-    button {
-        outline: none;
-        background-color: rgb(137, 1, 1);
-        color: white;
-        font-size: 1.3em;
-    }
-    
-    h1,
-    h2 {
-        color: rgb(11, 14, 5);
-        text-align: center;
-    }
-    
-    li {
-        list-style: none;
-    }
-    
-    .outer-container {
-        padding: 10px;
-        height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-    }
-    
-    /* Top-bar container */
-    .top-bar p {
-        float: right;
-    }
-    
-    /* Inner-Container Section */
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark gray text color */
+  }
+  
+  body {
+    background-color: #f9f9f9; /* Slightly off-white background */
+  }
+  
+  /* Header Styles */
+  h1, h2 {
+    color: #1d3557; /* Dark blue color for headings */
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  /* Button Styles */
+  button {
+    outline: none;
+    background-color: #e63946; /* Red color for buttons */
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff6347; /* Lighter red on hover */
+  }
+  
+  /* Outer Container Styles */
+  .outer-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Top Bar Styles */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .top-bar p {
+    font-size: 1.2em;
+  }
+  
+  /* Inner Container Styles */
+  .inner-container {
+    background-color: #ffffff;
+    width: 70%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Quiz Intro Styles */
+  .quiz-intro {
+    text-align: center;
+  }
+  
+  .quiz-intro p {
+    margin-bottom: 20px;
+  }
+  
+  /* Quiz Screen Styles */
+  .quiz-screen {
+    display: none;
+  }
+  
+  /* Question Styles */
+  .questions-screen {
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .questions-screen h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .answer-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .answer-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Finish Screen Styles */
+  .quiz-finish-screen {
+    display: none;
+  }
+  
+  /* Highscores Screen Styles */
+  .highscores-screen {
+    display: none;
+  }
+  
+  .highscores-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .highscores-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .highscores-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .highscores-list li {
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
     .inner-container {
-        background-color: rgb(255, 255, 255);
-        height: 100%;
-        width: 50%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      width: 90%;
     }
-    
-    /* Header/Quiz Container Section */
-    .quiz-intro,
-    main {
-    
-        margin-top: 30vh;
-        margin-left: 10%;
-        margin-right: 10%;
-        background-color: rgb(138, 103, 109);
-    }
-    
-    .quiz-intro p {
-        text-align: center;
-    }
-    
-    .quiz-intro button {
-        display: block;
-        margin: 0 auto;
-    }
-    
-    /* Main Quiz Content */
-    main {
-        display: none;
-    }
-    
-    /* Question screen */
-    .question-screen {
-        display: none;
-    }
-    
-    /* Finish screen */
-    .quiz-finish-screen {
-        display: none;
-    }
-    
-    /* Highscores screen */
-    .highscores-screen {
-        display: block;
-    }
-
-
+  }
+  

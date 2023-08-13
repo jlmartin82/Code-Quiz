@@ -1,116 +1,83 @@
-// Get elements from the HTML document
-const startButton = document.querySelector('.quiz-intro button');
-const questionsScreen = document.querySelector('.questions-screen');
-const quizFinishScreen = document.querySelector('.quiz-finish-screen');
-const highscoresScreen = document.querySelector('.highscores-screen');
-const scoreDisplay = document.querySelector('.quiz-finish-screen p');
-const initialsInput = document.querySelector('.quiz-finish-screen input');
-const submitButton = document.querySelector('.quiz-finish-screen button');
-const timerDisplay = document.querySelector('.top-bar p');
+// script.js
+const startButton = document.getElementById('start-button');
+const quizScreen = document.getElementById('quiz-screen');
+const endScreen = document.getElementById('end-screen');
+const submitButton = document.getElementById('submit-score');
+const initialsInput = document.getElementById('initials');
+const finalScore = document.getElementById('final-score');
 
-// Quiz questions and answers
-const quizQuestions = [
-  {
-    question: 'Commonly Used data types DO NOT include',
-    answers: ["stings", "alerts", "booleans", "numbers"],
-    correctAnswer: "alerts"
-  },
-  {
-    question: "The condition in an if / else statement is enclosed within _____.",
-    answers: ["parentheses", "quotes", "curly brackets", "square brackets"],
-    correctAnswer: "parentheses"
-  },
-  {
-    question: "What JavaScript method can we use to select an HTML element?",
-    answers: ["document.querySelector()", "document.getElementChild", "document.getElementById", "Both 1 and 3"],
-    correctAnswer: "Both 1 and 3"
-  }
-];
-
-// Global variables
 let currentQuestionIndex = 0;
 let timeLeft = 60;
-let timerInterval;
 
-// Function to handle the click event for the Start button
-function StartButtonClick() {
-  startQuiz();
-}
+const questions = [
+  {
+    question: "What does HTML stand for?",
+    choices: [
+      "Hypertext Markup Language",
+      "Hyper Technology Modern Language",
+      "Home Tool Markup Language",
+      "Hyperlink and Text Markup Language"
+    ],
+    correctAnswer: "Hypertext Markup Language"
+  },
+  // Add more questions here
+];
 
-// Functions for handling the quiz
 function startQuiz() {
+  startButton.classList.add('hidden');
+  quizScreen.classList.remove('hidden');
+  displayQuestion(currentQuestionIndex);
   startTimer();
-  showQuestion(currentQuestionIndex);
 }
 
-function showQuestion(index) {
-  const currentQuestion = quizQuestions[index];
-  const questionText = currentQuestion.question;
-  const answerButtons = questionsScreen.querySelectorAll('button');
-  
-  // Display the question and answers
-  questionsScreen.querySelector('h2').textContent = questionText;
-  for (let i = 0; i < answerButtons.length; i++) {
-    answerButtons[i].textContent = currentQuestion.answers[i];
-  }
+function displayQuestion(index) {
+  const question = questions[index];
+  const questionElement = document.querySelector('#quiz-screen h2');
+  const choices = document.querySelectorAll('.choice');
 
-  // Attach click event listeners to answer buttons
-  answerButtons.forEach((button, i) => {
-    button.addEventListener('click', () => {
-      if (currentQuestion.answers[i] === currentQuestion.correctAnswer) {
-        scoreDisplay.textContent = `Your Score: ${timeLeft}`;
-        showQuizFinishScreen();
-      } else {
-        timeLeft -= 10;
-        if (timeLeft <= 0) {
-          scoreDisplay.textContent = `Your Score: 0`;
-          showQuizFinishScreen();
-        } else {
-          showQuestion(currentQuestionIndex++);
-        }
-      }
-    });
+  questionElement.textContent = `Question ${index + 1}: ${question.question}`;
+
+  choices.forEach((choice, i) => {
+    choice.textContent = question.choices[i];
+    choice.addEventListener('click', () => checkAnswer(choice, question.correctAnswer));
   });
 }
 
-function showQuizFinishScreen() {
-  clearInterval(timerInterval);
-  questionsScreen.style.display = 'none';
-  quizFinishScreen.style.display = 'block';
-}
-
-function submitScore() {
-  const initials = initialsInput.value.trim();
-  if (initials) {
-    const highscoresList = highscoresScreen.querySelector('ol');
-    const newScore = document.createElement('li');
-    newScore.textContent = `${initials} - ${timeLeft}`;
-    highscoresList.appendChild(newScore);
-    showHighscoresScreen();
+function checkAnswer(selectedChoice, correctAnswer) {
+  if (selectedChoice.textContent === correctAnswer) {
+    // Handle correct answer
+  } else {
+    // Handle incorrect answer
+    timeLeft -= 10; // Subtract time for incorrect answer
+  }
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    displayQuestion(currentQuestionIndex);
+  } else {
+    endQuiz();
   }
 }
 
-function showHighscoresScreen() {
-  quizFinishScreen.style.display = 'none';
-  highscoresScreen.style.display = 'block';
-}
-
 function startTimer() {
-  timerInterval = setInterval(() => {
+  const timerInterval = setInterval(() => {
     timeLeft--;
     if (timeLeft <= 0) {
-      scoreDisplay.textContent = `Your Score: 0`;
-      showQuizFinishScreen();
-    } else {
-      const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-      const seconds = (timeLeft % 60).toString().padStart(2, '0');
-      timerDisplay.textContent = `Timer: ${minutes}:${seconds}`;
+      clearInterval(timerInterval);
+      endQuiz();
     }
   }, 1000);
 }
 
-// Attach event listener to the Start button
-startButton.addEventListener('click', StartButtonClick);
+function endQuiz() {
+  quizScreen.classList.add('hidden');
+  endScreen.classList.remove('hidden');
+  finalScore.textContent = timeLeft;
+  submitButton.addEventListener('click', saveScore);
+}
 
-// Attach event listener to the Submit button
-submitButton.addEventListener('click', submitScore);
+function saveScore() {
+  const initials = initialsInput.value;
+  // Save initials and score, e.g., using localStorage or an API
+}
+
+startButton.addEventListener('click', startQuiz);

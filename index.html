@@ -1,55 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>CSS Box Styling</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Quiz</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
   <div class="outer-container">
-    <div class="top-bar">
-      <button>View Highscores</button>
-      <p id="timer">Time: 60</p>
-    </div>
+    <!-- ... other elements ... -->
 
-    <div class="inner-container">
-      <header class="quiz-intro">
+    <main>
+      <div class="quiz-intro">
         <h1>Welcome to the quiz</h1>
         <p>To get started with the quiz, click the button below!</p>
-        <button>Start Quiz</button>
-      </header>
+        <button id="start-button">Start Quiz</button>
+      </div>
 
-      <main>
-        <section class="questions-screen">
-          <h2>Question Here</h2>
-          <ul>
-            <li><button class="answer-btn">Choice 1</button></li>
-            <li><button class="answer-btn">Choice 2</button></li>
-            <li><button class="answer-btn">Choice 3</button></li>
-          </ul>
-        </section>
-        <div class="result-container">
-          <p id="result-text"></p>
-          <button id="next-btn">Next Question</button>
-        </div>
+      
 
-        <div class="finish-container">
-          <h2>Quiz Finished</h2>
-          <p>Your Score: <span id="final-score"></span></p>
-          <label for="initials">Enter Initials:</label>
-          <input type="text" id="initials" />
-          <button id="submit-btn">Submit</button>
-        </div>
-      </main>
-    </div>
-  </div>
+      <section class="quiz-screen hidden">
+        <!-- ... quiz question elements ... -->
+      </section>
 
-  <div class="highscores-container">
-    <h2>Highscores:</h2>
-    <ol id="highscores-list"></ol>
-    <button id="clear-btn">Clear Highscores</button>
-    <button id="go-back-btn">Go Back</button>
+      <!-- ... other sections ... -->
+    </main>
   </div>
 
   <script src="./assets/js/script.js"></script>
