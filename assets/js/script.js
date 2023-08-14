@@ -1,8 +1,7 @@
-// script.js
-const startButton = document.getElementById('start-button');
-const quizScreen = document.getElementById('quiz-screen');
+const startButton = document.getElementById('startButton');
+const quizScreen = document.querySelector('.quiz-screen');
 const endScreen = document.getElementById('end-screen');
-const submitButton = document.getElementById('submit-score');
+const submitButton = document.getElementById('submit-score'); 
 const initialsInput = document.getElementById('initials');
 const finalScore = document.getElementById('final-score');
 
@@ -30,10 +29,11 @@ function startQuiz() {
   startTimer();
 }
 
+
 function displayQuestion(index) {
   const question = questions[index];
   const questionElement = document.querySelector('#quiz-screen h2');
-  const choices = document.querySelectorAll('.choice');
+  const choices = document.querySelectorAll('.answer-btn'); // Correct class
 
   questionElement.textContent = `Question ${index + 1}: ${question.question}`;
 
