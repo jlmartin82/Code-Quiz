@@ -53,8 +53,9 @@ To use the **Code Quiz** app, follow these steps:
 6. Enter your initials to save your score on the high score board.
 
 ## Screenshots
-
-Coming Soon!
+![A2](https://github.com/jlmartin82/Code-Quiz/assets/129562637/b05e2b6d-3e81-4711-b1e9-687c7347c66a)
+![A1Screenshot 2023-08-20 at 12 50 00 PM](https://github.com/jlmartin82/Code-Quiz/assets/129562637/84e9ecd3-b69e-4ba3-a465-6605796a8289)
+![A3](https://github.com/jlmartin82/Code-Quiz/assets/129562637/c080a72e-96a6-41a6-9d4e-291b7c92793d)
 
 ## Technologies Used
 
