@@ -24,18 +24,23 @@ const questions = [
 
 function startQuiz() {
   startButton.classList.add('hidden');
+  // console.log(quizScreen.classList.remove('hidden'))
+  // console.log(quizScreen.classList.add('show'))
   quizScreen.classList.remove('hidden');
-  displayQuestion(currentQuestionIndex);
+  quizScreen.classList.add('show')
+
+
+  displayQuestion();
   startTimer();
 }
 
 
-function displayQuestion(index) {
-  const question = questions[index];
-  const questionElement = document.querySelector('#quiz-screen h2');
+function displayQuestion() {
+  const question = questions[currentQuestionIndex];
+  const questionElement = document.querySelector('section.quiz-screen h2');
   const choices = document.querySelectorAll('.answer-btn'); // Correct class
 
-  questionElement.textContent = `Question ${index + 1}: ${question.question}`;
+  questionElement.textContent = `Question ${currentQuestionIndex + 1}: ${question.question}`;
 
   choices.forEach((choice, i) => {
     choice.textContent = question.choices[i];
@@ -44,19 +49,25 @@ function displayQuestion(index) {
 }
 
 function checkAnswer(selectedChoice, correctAnswer) {
-  if (selectedChoice.textContent === correctAnswer) {
-    // Handle correct answer
-  } else {
-    // Handle incorrect answer
-    timeLeft -= 10; // Subtract time for incorrect answer
-  }
-  currentQuestionIndex++;
+  console.log(selectedChoice, correctAnswer)
+  
+ 
   if (currentQuestionIndex < questions.length) {
-    displayQuestion(currentQuestionIndex);
+    if (selectedChoice.textContent === correctAnswer) {
+      // Handle correct answer
+      currentQuestionIndex++;
+    } else { currentQuestionIndex++;
+      // Handle incorrect answer
+      timeLeft -= 10; // Subtract time for incorrect answer
+      currentQuestionIndex++;
+    }
   } else {
     endQuiz();
   }
 }
+    
+    
+    
 
 function startTimer() {
   const timerInterval = setInterval(() => {
@@ -70,8 +81,8 @@ function startTimer() {
 
 function endQuiz() {
   quizScreen.classList.add('hidden');
-  endScreen.classList.remove('hidden');
-  finalScore.textContent = timeLeft;
+  // endScreen.classList.remove('hidden');
+  // finalScore.textContent = timeLeft;
   submitButton.addEventListener('click', saveScore);
 }
 

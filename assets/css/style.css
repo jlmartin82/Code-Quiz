@@ -108,7 +108,15 @@
   .quiz-finish-screen {
     display: none;
   }
-  
+  .hidden{
+    display: none;
+
+  }
+
+  .show {
+    display: block;
+  }
+
   /* Highscores Screen Styles */
   .highscores-screen {
     display: none;
